@@ -1,0 +1,65 @@
+<!-- admin-formularios.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrar Formularios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="admin-formularios">
+        <div class="admin-formularios-container">
+            <h2>Formularios de Contacto</h2>
+            <div class="formulario-lista" id="formulario-lista">
+                <div class="formulario-item">
+                    <span>Formulario 0001</span>
+                    <span>Fecha: 2024-06-21 Hora: 10:00</span>
+                    <button class="btn ver-formulario-btn" onclick="toggleFormulario('form1')">Ver Formulario</button>
+                    <div class="formulario-detalle" id="form1">
+                        <p>Nombre Completo: Juan Pérez</p>
+                        <p>Correo Electrónico: juan.perez@gmail.com</p>
+                        <p>Mensaje: Me gustaría recibir más información sobre sus servicios.</p>
+                    </div>
+                </div>
+                <div class="formulario-item">
+                    <span>Formulario 0002</span>
+                    <span>Fecha: 2024-06-22 Hora: 11:00</span>
+                    <button class="btn ver-formulario-btn" onclick="toggleFormulario('form2')">Ver Formulario</button>
+                    <div class="formulario-detalle" id="form2">
+                        <p>Nombre Completo: Ana Gómez</p>
+                        <p>Correo Electrónico: ana.gomez@gmail.com</p>
+                        <p>Mensaje: ¿Podrían enviarme un menú de ejemplo?</p>
+                    </div>
+                </div>
+                <div class="formulario-item">
+                    <span>Formulario 0003</span>
+                    <span>Fecha: 2024-06-23 Hora: 12:00</span>
+                    <button class="btn ver-formulario-btn" onclick="toggleFormulario('form3')">Ver Formulario</button>
+                    <div class="formulario-detalle" id="form3">
+                        <p>Nombre Completo: Luis Martínez</p>
+                        <p>Correo Electrónico: luis.martinez@gmail.com</p>
+                        <p>Mensaje: Estoy interesado en un evento corporativo.</p>
+                    </div>
+                </div>
+            </div>
+            <a href="admin-options.html" class="btn back-btn">Volver</a>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        function toggleFormulario(id) {
+            const formularioDetalle = document.getElementById(id);
+            if (formularioDetalle.style.display === 'block') {
+                formularioDetalle.style.display = 'none';
+            } else {
+                formularioDetalle.style.display = 'block';
+            }
+        }
+    </script>
+    <script src="admin-formularios.js"></script>
+</body>
+</html>

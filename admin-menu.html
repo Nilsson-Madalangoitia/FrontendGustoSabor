@@ -1,0 +1,256 @@
+<!-- admin-menu.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrar Menú</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin-menu.css">
+</head>
+<body>
+    <section class="admin-menu">
+        <div class="admin-menu-wrapper">
+            <div class="admin-menu-container">
+                <h2>Administrar Menú</h2>
+                <div class="admin-buttons">
+                    <button id="add-dish-btn" class="btn">Agregar Plato</button>
+                    <button id="modify-dish-btn" class="btn">Modificar Plato</button>
+                    <button id="delete-dish-btn" class="btn">Eliminar Plato</button>
+                </div>
+                <form id="menu-form" style="display: none;">
+                    <div class="form-group" id="menu-id-group" style="display: none;">
+                        <label for="menu-id">ID del Plato:</label>
+                        <input type="text" id="menu-id" name="menu-id" disabled>
+                    </div>
+                    <div class="form-group">
+                        <select id="categoria">
+                            <option value="" disabled selected>Seleccionar</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Nombre del Plato:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripción:</label>
+                        <textarea id="descripcion" name="descripcion" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="precio">Costo:</label>
+                        <input type="number" id="precio" name="precio" required>
+                    </div>
+                    <a type="submit" onclick="agregarServicio()" class="btn">Guardar</a>
+                </form>
+                <div id="delete-menu-list" style="display: none;">
+                    <h3>Eliminar Plato</h3>
+                    <!-- Aquí se mostrarán los IDs de los platos para eliminar -->
+                    <div id="delete-menu-items"></div>
+                </div>
+
+                <h1 style="margin-top: 2rem;">Lista de platos</h1>
+                <table id="dynamicTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>ID Categoria</th>
+                            <th>Nombre</th>
+                            <th>Descripcion</th>
+                            <th>Precio</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Filas dinámicas se agregarán aquí -->
+                    </tbody>
+                </table>
+
+                <a href="admin-options.html" class="btn back-btn">Volver</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="MenuCategory.js"></script>
+    <script src="menu.js"></script>
+    <script src="MenuManager.js"></script>
+    <script>
+        const menuManager = new MenuManager();
+        let currentAction = '';
+
+        // Agregar ejemplos de platos
+        const exampleDishes = [
+            new Menu('1', 'Plato 1', 'Descripción del Plato 1', 15, 'https://via.placeholder.com/100'),
+            new Menu('2', 'Plato 2', 'Descripción del Plato 2', 20, 'https://via.placeholder.com/100'),
+            new Menu('3', 'Plato 3', 'Descripción del Plato 3', 25, 'https://via.placeholder.com/100')
+        ];
+        const exampleCategory = new MenuCategory('Platos', exampleDishes);
+        menuManager.addCategory(exampleCategory);
+
+        document.getElementById('add-dish-btn').addEventListener('click', function() {
+            currentAction = 'add';
+            document.getElementById('menu-form').style.display = 'block';
+            document.getElementById('menu-id-group').style.display = 'none';
+            document.getElementById('delete-menu-list').style.display = 'none';
+            document.getElementById('menu-form').reset();
+        });
+
+        document.getElementById('modify-dish-btn').addEventListener('click', function() {
+            currentAction = 'modify';
+            document.getElementById('menu-form').style.display = 'block';
+            document.getElementById('menu-id-group').style.display = 'block';
+            document.getElementById('delete-menu-list').style.display = 'none';
+            document.getElementById('menu-form').reset();
+            displayMenusInForm();
+        });
+
+        document.getElementById('delete-dish-btn').addEventListener('click', function() {
+            currentAction = 'delete';
+            document.getElementById('menu-form').style.display = 'none';
+            document.getElementById('delete-menu-list').style.display = 'block';
+            displayDeleteMenus();
+        });
+
+        document.getElementById('menu-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const category = document.getElementById('category').value;
+            const name = document.getElementById('name').value;
+            const description = document.getElementById('description').value;
+            const price = document.getElementById('price').value;
+            const imageInput = document.getElementById('image');
+            const image = imageInput.files.length > 0 ? imageInput.files[0] : null;
+
+            if (currentAction === 'add') {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const imageUrl = event.target.result;
+                    const newMenu = new Menu(Date.now().toString(), name, description, price, imageUrl);
+                    let categoryExists = menuManager.categories.find(cat => cat.name === category);
+
+                    if (!categoryExists) {
+                        categoryExists = new MenuCategory(category, []);
+                        menuManager.addCategory(categoryExists);
+                    }
+
+                    categoryExists.menus.push(newMenu);
+                    displayMenus();
+                };
+                if (image) {
+                    reader.readAsDataURL(image);
+                } else {
+                    alert('Debe seleccionar una imagen');
+                }
+            } else if (currentAction === 'modify') {
+                const menuId = document.getElementById('menu-id').value;
+                const menu = menuManager.getMenuById(menuId);
+
+                if (menu) {
+                    menu.name = name;
+                    menu.description = description;
+                    menu.price = price;
+                    if (image) {
+                        const reader = new FileReader();
+                        reader.onload = function(event) {
+                            menu.image = event.target.result;
+                            displayMenus();
+                        };
+                        reader.readAsDataURL(image);
+                    } else {
+                        displayMenus();
+                    }
+                } else {
+                    alert('Plato no encontrado');
+                }
+            }
+
+            document.getElementById('menu-form').reset();
+            document.getElementById('menu-form').style.display = 'none';
+        });
+
+        function displayMenus() {
+            const menuItemsContainer = document.getElementById('menu-items');
+            menuItemsContainer.innerHTML = '';
+
+            menuManager.categories.forEach(category => {
+                const categoryHeader = document.createElement('h4');
+                categoryHeader.textContent = category.name;
+                menuItemsContainer.appendChild(categoryHeader);
+
+                category.menus.forEach(menu => {
+                    const menuItem = document.createElement('div');
+                    menuItem.classList.add('menu-item');
+                    menuItem.innerHTML = `
+                        <h5>${menu.name}</h5>
+                        <p>${menu.description}</p>
+                        <p><strong>Costo:</strong> S/${menu.price}</p>
+                    `;
+                    menuItemsContainer.appendChild(menuItem);
+                });
+            });
+        }
+
+        function displayMenusInForm() {
+            const menuItemsContainer = document.getElementById('menu-items');
+            menuItemsContainer.innerHTML = '';
+
+            menuManager.categories.forEach(category => {
+                const categoryHeader = document.createElement('h4');
+                categoryHeader.textContent = category.name;
+                menuItemsContainer.appendChild(categoryHeader);
+
+                category.menus.forEach(menu => {
+                    const menuItem = document.createElement('div');
+                    menuItem.classList.add('menu-item');
+                    menuItem.innerHTML = `
+                        <h5>${menu.name}</h5>
+                        <p>${menu.description}</p>
+                        <p><strong>Costo:</strong> S/${menu.price}</p>
+                        <p><strong>ID:</strong> ${menu.id}</p>
+                        <img src="${menu.image}" alt="${menu.name}" width="100">
+                    `;
+                    menuItemsContainer.appendChild(menuItem);
+                });
+            });
+        }
+
+        function displayDeleteMenus() {
+            const deleteMenuItemsContainer = document.getElementById('delete-menu-items');
+            deleteMenuItemsContainer.innerHTML = '';
+
+            menuManager.categories.forEach(category => {
+                const categoryHeader = document.createElement('h4');
+                categoryHeader.textContent = category.name;
+                deleteMenuItemsContainer.appendChild(categoryHeader);
+
+                category.menus.forEach(menu => {
+                    const menuItem = document.createElement('div');
+                    menuItem.classList.add('delete-menu-item');
+                    menuItem.innerHTML = `
+                        <p>ID: ${menu.id}</p>
+                        <p>${menu.name}</p>
+                        <button class="btn" onclick="deleteMenuById('${menu.id}')">Eliminar</button>
+                    `;
+                    deleteMenuItemsContainer.appendChild(menuItem);
+                });
+            });
+        }
+
+        function deleteMenuById(menuId) {
+            for (const category of menuManager.categories) {
+                const menuIndex = category.menus.findIndex(menu => menu.id === menuId);
+                if (menuIndex !== -1) {
+                    category.menus.splice(menuIndex, 1);
+                    displayDeleteMenus();
+                    displayMenus();
+                    break;
+                }
+            }
+        }
+
+        displayMenus();
+    </script>
+</body>
+</html>

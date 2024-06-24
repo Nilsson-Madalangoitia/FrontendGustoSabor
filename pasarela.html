@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style-pasarela.css">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <title></title>
+  </head>
+
+  <body>
+    <div class="container mt-5">
+      <form id="formularioDatosDePago">
+        <div class="card-pasarela">
+          <div class="card-header">
+            <h2>Información de pago</h2>
+          </div>
+          <div class="card-body">
+           
+            <div class="row">
+              <div class="col-12">
+        
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-5">
+                <div class="form-group">
+                  <label class="form-label">Tarjeta</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="XXXXXXXXXXXXXXXXXX"
+                    id="card"
+                    name="card"
+                  />
+                  <div class="invalid-feedback" id="error_card">
+                    Error número de tarjeta inválida
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-3">
+                <div class="form-group">
+                  <label class="form-label">CVC</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="000"
+                    id="valorCvc"
+                    name="valorCvc"
+                  />
+                  <div class="invalid-feedback" id="error_valorCvc"></div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4">
+          
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <label class="form-label">Nombre</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="firstnameValor"
+                    name="firstnameValor"
+                  />
+                  <div class="invalid-feedback" id="inserteNombre"></div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <label class="form-label">Apellido</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="lastApellidoValor"
+                    name="lastApellidoValor"
+                  />
+                  <div class="invalid-feedback" id="inserteApellido"></div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <label class="form-label">Correo electronico</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cityValor"
+                    name="cityValor"
+                  />
+                  <div class="invalid-feedback" id="city"></div>
+                </div>
+              </div>
+              <div class="col-12 col-md-3">
+                <div class="form-group">
+                  <label class="form-label">Código postal</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="postalCodeValor"
+                    name="postalCodeValor"
+                  />
+                  <div class="invalid-feedback" id="postalCode"></div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <label class="d-block form-label">Aceptamos:</label>
+                  <div
+                    class="d-inline-block bg-secondary p-2 rounded-lg text-white"
+                  >
+                    <div
+                      class="custom-control custom-radio custom-control-inline"
+                    >
+                      <input
+                        type="radio"
+                        id="customRadioInline1"
+                        name="customRadioInline1"
+                        class="custom-control-input"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="customRadioInline1"
+                        ><i class="fab fa-cc-mastercard"></i
+                      ></label>
+                    </div>
+                    <div
+                      class="custom-control custom-radio custom-control-inline"
+                    >
+                      <input
+                        type="radio"
+                        id="customRadioInline2"
+                        name="customRadioInline1"
+                        class="custom-control-input"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="customRadioInline2"
+                        ><i class="fab fa-cc-visa"></i
+                      ></label>
+                    </div>
+                    <div
+                      class="custom-control custom-radio custom-control-inline"
+                    >
+                      <input
+                        type="radio"
+                        id="customRadioInline3"
+                        name="customRadioInline1"
+                        class="custom-control-input"
+                        checked
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="customRadioInline3"
+                        ><i class="fab fa-cc-diners-club"></i
+                      ></label>
+                    </div>
+                    <div
+                      class="custom-control custom-radio custom-control-inline"
+                    >
+                      <input
+                        type="radio"
+                        id="customRadioInline4"
+                        name="customRadioInline1"
+                        class="custom-control-input"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="customRadioInline4"
+                        ><i class="fab fa-cc-amex"></i
+                      ></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Mensaje</label>
+                  <textarea
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    name="exampleFormControlTextarea1"
+                    rows="3"
+                  ></textarea>
+                  <div class="invalid-feedback" id="Message"></div>
+                  <small
+                    id="exampleFormControlTextarea1Help"
+                    class="form-text text-muted"
+                    >Agregue cualquier nota aquí.</small
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer text-right">
+            <a href="#" class="btn btn-secondary">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="validacion.js"></script>
+  </body>
+</html>

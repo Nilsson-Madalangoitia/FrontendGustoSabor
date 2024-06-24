@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - GustoSabor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <header>
+        <a href="/index.html" class="logo">
+            <img src="img/logo-catering.png" alt="logo">
+        </a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <ul class="navbar">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="menu.html">Menú</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="nosotros.html">Sobre nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="admin-login.html" class="admin-login-btn">Admin Login</a></li>
+        </ul>
+        </ul>
+        <div class="header-icon">
+            <i class='bx bx-cart-alt' id="cart-icon"></i>
+        </div>
+        <div id="cart" class="cart">
+            <div class="cart-header">
+                <h2>Mi Carrito</h2>
+                <button class="close-btn"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="cart-items">
+                <!-- Los productos del carrito se agregarán aquí dinámicamente -->
+            </div>
+            <div class="cart-footer">
+                <div class="total"></div>
+                <a href="pasarela.html"> <button class="checkout-btn">Ir a pagar</button> </a>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="menu" id="menu">
+            <div class="heading">
+                <h2>Nuestro Menú</h2>
+            </div>
+            <div class="menu-container">
+                <div class="menu-sidebar">
+                    <h3>Categorías</h3>
+                    <ul>
+                        <li class="active" data-category="desayunos">Desayunos</li>
+                        <li data-category="almuerzos">Almuerzos</li>
+                        <li data-category="buffets">Buffets</li>
+                        <li data-category="cocteles">Cocteles</li>
+                    </ul>
+                </div>
+                <div class="menu-content">
+                    <div class="menu-cards">
+                        <!-- Las cards de menús se generarán dinámicamente aquí -->
+                    </div>
+                    <div class="menu-navigation">
+                        <button class="prev-btn"><i class='bx bx-chevron-left'></i></button>
+                        <button class="next-btn"><i class='bx bx-chevron-right'></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="footer">
+        <div class="footer-box">
+            <h2>GustoSabor</h2>
+            <p>Transformamos tu celebración en una experiencia culinaria</p>
+            <div class="social">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-tiktok'></i></a>
+            </div>
+        </div>
+        <div class="footer-box">
+            <h3>Soporte</h3>
+            <li><a href="#">Sobre nosotros</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Galeria</a></li>
+        </div>
+        <div class="footer-box">
+            <h3>Encuéntranos</h3>
+            <div class="contact">
+                <span><i class="bx bxs-map"></i> Av. Túpac Amaru 614, Urb. Las Quintanas</span>
+                <span><i class="bx bxs-phone"></i>99899245</span>
+                <span><i class="bx bxs-envelope"></i>GustoSabor@gmail.com</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="copyright">
+        <p>&#169; GustoSabor Todos Los Derechos Reservados</p>
+    </div>
+
+  
+
+    <script src="menu.js"></script>
+    <script src="cart.js"></script>
+    <script src="main.js"></script>
+    <script src="MenuCategory.js"></script>
+    <script src="MenuManager.js"></script>
+    <script>
+        // JavaScript para manejar el menú responsive
+        document.getElementById('menu-icon').addEventListener('click', function() {
+            document.querySelector('.navbar').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

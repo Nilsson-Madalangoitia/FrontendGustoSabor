@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catering Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <header>
+        <a href="/index.html" class="logo">
+            <img src="img/logo-catering.png" alt="logo">
+        </a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <ul class="navbar">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="menu.html">Menú</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="nosotros.html">Sobre nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="admin-login.html" class="admin-login-btn">Admin Login</a></li>
+        </ul>
+        </ul>
+        <div class="header-icon">
+            <i class='bx bx-cart-alt' id="cart-icon"></i>
+        </div>
+        <div id="cart" class="cart">
+            <div class="cart-header">
+                <h2>Mi Carrito</h2>
+                <button class="close-btn"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="cart-items">
+                <!-- Los productos del carrito se agregarán aquí dinámicamente -->
+            </div>
+            <div class="cart-footer">
+                <div class="total"></div>
+                <a href="pasarela.html"> <button class="checkout-btn">Ir a pagar</button> </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="inicio" id="inicio">
+        <div class="content">
+            <h1>Sabores que Encantan<br> Servicio de Catering</h1>
+            <p>Transformamos tu celebración en una experiencia culinaria</p>
+            <a href="menu.html" class="btn">Ver Menú</a>
+        </div>
+        <div class="inicio-img">
+            <img src="img/comida-removebg.png" alt="">
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="img/nosotros.jpg" alt="">
+        </div>
+        <div class="about-text">
+            <h2>Nuestra Historia</h2>
+            <p>En GustoSabor, creemos que la comida no es solo nutrición, es una experiencia.</p>
+            <p>Desde 2020, hemos estado brindando servicios de catering que no solo satisfacen el paladar</p>
+            <p>sino que también celebran la riqueza y diversidad de los sabores de nuestro país</p>
+            <p>Nuestro compromiso es brindar una experiencia gastronómica inolvidable, donde cada detalle cuenta y cada
+                plato cuenta una historia.</p>
+            <a href="nosotros.html" class="btn">Leer más</a>
+        </div>
+    </section>
+
+    <section class="menus" id="menus">
+        <div class="heading">
+            <h2>Nuestros Productos</h2>
+        </div>
+
+        <div class="menus-container">
+            <div class="box">
+                <img src="img/almuerzo1.jpg" alt="">
+                <h3>Lomo Saltado</h3>
+                <div class="content"></div>
+                <span>S/25.00</span>
+                <a href="menu.html" class="btn">Ver más</a>
+            </div>
+
+            <div class="box">
+                <img src="img/almuerzo2.jpg" alt="">
+                <h3>Ceviche</h3>
+                <div class="content"></div>
+                <span>S/30.00</span>
+                <a href="menu.html" class="btn">Ver más</a>
+            </div>
+
+            <div class="box">
+                <img src="img/almuerzo3.jpg" alt="">
+                <h3>Lomo Saltado</h3>
+                <div class="content"></div>
+                <span>S/22.00</span>
+                <a href="menu.html" class="btn">Ver más</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="servicios" id="servicios">
+        <div class="heading">
+            <h2>Nuestros Servicios</h2>
+        </div>
+
+        <div class="servicios-container">
+            <div class="box">
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half'></i>
+                </div>
+                <p>Especialistas en hacer de cada boda un cuento de hadas gastronómico, “GustoCelebra” se encarga de cada
+                    detalle para que los novios y sus invitados disfruten de una celebración llena de amor y sabores
+                    memorables.</p>
+                <h2>Catering para Bodas</h2>
+                <img src="img/catering-boda.png" alt="">
+            </div>
+
+            <div class="box">
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half'></i>
+                </div>
+                <p>Transforma reuniones de negocios y eventos corporativos en experiencias culinarias excepcionales.
+                    Ofrecemos menús personalizados que se adaptan a la identidad de su empresa, desde desayunos ejecutivos
+                    hasta cenas de gala</p>
+                <h2>Catering Corporativo</h2>
+                <img src="img/catering-ejecutivo.jpeg" alt="">
+            </div>
+
+            <div class="box">
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half'></i>
+                </div>
+                <p>Ya sea una fiesta retro, una noche de casino o una aventura tropical, nuestros menús y decoraciones están
+                    cuidadosamente seleccionados para sumergir a sus invitados en una experiencia temática completa.</p>
+                <h2>Catering Temático</h2>
+                <img src="img/catering-tematico.jpg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="footer-box">
+            <h2>GustoSabor</h2>
+            <p>Transformamos tu celebración en una experiencia culinaria</p>
+            <div class="social">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-tiktok'></i></a>
+            </div>
+        </div>
+        <div class="footer-box">
+            <h3>Soporte</h3>
+            <li><a href="#">Sobre nosotros</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Galeria</a></li>
+        </div>
+        <div class="footer-box">
+            <h3>Encuéntranos</h3>
+            <div class="contact">
+                <span><i class="bx bxs-map"></i> Av. Túpac Amaru 614, Urb. Las Quintanas</span>
+                <span><i class="bx bxs-phone"></i>99899245</span>
+                <span><i class="bx bxs-envelope"></i>GustoSabor@gmail.com</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="copyright">
+        <p>&#169; GustoSabor Todos Los Derechos Reservados</p>
+    </div>
+    
+    <script src="cart.js"></script>
+    <script src="main.js"></script>
+    <script>
+        // JavaScript para manejar el menú responsive
+        document.getElementById('menu-icon').addEventListener('click', function() {
+            document.querySelector('.navbar').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

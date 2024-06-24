@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - GustoSabor</title>
+    <link rel="stylesheet" href="servicio.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <header>
+        <a href="/index.html" class="logo">
+            <img src="img/logo-catering.png" alt="logo">
+        </a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <ul class="navbar">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="menu.html">Menú</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="nosotros.html">Sobre nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="admin-login.html" class="admin-login-btn">Admin Login</a></li>
+        </ul>
+        </ul>
+        <div class="header-icon">
+            <i class='bx bx-cart-alt' id="cart-icon"></i>
+        </div>
+        <div id="cart" class="cart">
+            <div class="cart-header">
+                <h2>Mi Carrito</h2>
+                <button class="close-btn"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="cart-items">
+                <!-- Los productos del carrito se agregarán aquí dinámicamente -->
+            </div>
+            <div class="cart-footer">
+                <div class="total"></div>
+                <a href="pasarela.html"> <button class="checkout-btn">Ir a pagar</button> </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="services" id="services">
+            <div class="heading">
+                <h2>Nuestros Servicios</h2>
+            </div>
+
+            <div class="services-container">
+                <div class="services-sidebar">
+                    <h3>Categorías</h3>
+                    <ul>
+                        <li class="active" data-category="bodas">Catering para Bodas</li>
+                        <li data-category="corporativo">Catering Corporativo</li>
+                        <li data-category="tematico">Catering Temático</li>
+                    </ul>
+                </div>
+
+                <div class="services-content">
+                    <div class="service-info">
+                        <!-- La información del servicio se generará dinámicamente aquí -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="heading">
+                <h2>Contáctanos</h2>
+            </div>
+    
+            <div class="contact-form-serv">
+                <h3>Reserva Personalizada</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="nombre">Nombres:</label>
+                        <input type="text" id="nombres" name="nombres" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidos">Apellidos:</label>
+                        <input type="text" id="apellidos" name="apellidos" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Número de Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-type">Tipo de Servicio:</label>
+                        <select name="event-type" required>
+                            <option value="">Seleccionar</option>
+                            <option value="Boda">Boda</option>
+                            <option value="Temático">Temático</option>
+                            <option value="Corporativo">Corporativo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-type">Tipo contacto:</label>
+                        <select id="contacto" name="event-type" required>
+                            <option value="" disabled selected>Seleccionar</option>
+                            <option value="I">Información</option>
+                            <option value="P">Presupuesto</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="locations">Ubicaciones de Interés:</label>
+                        <input type="text" name="locations">
+                    </div>
+                    <div class="form-group">
+                        <label for="dates">Fechas (opcional):</label>
+                        <input type="date" name="dates">
+                    </div>
+                    <div class="form-group">
+                        <label for="guest-count">Cantidad Aproximada de Invitados (opcional):</label>
+                        <input type="number" name="guest-count">
+                    </div>
+                    <a type="submit" onclick="agregarSolicitud()" class="btn">Empezar a Planificar</a>
+    
+                </div>
+            </section>
+    </main>
+
+    <section class="footer">
+        <div class="footer-box">
+            <h2>GustoSabor</h2>
+            <p>Transformamos tu celebración en una experiencia culinaria</p>
+            <div class="social">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-tiktok'></i></a>
+            </div>
+        </div>
+        <div class="footer-box">
+            <h3>Soporte</h3>
+            <ul>
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Galeria</a></li>
+            </ul>
+        </div>
+        <div class="footer-box">
+            <h3>Encuéntranos</h3>
+            <div class="contact">
+                <span><i class="bx bxs-map"></i> Av. Túpac Amaru 614, Urb. Las Quintanas</span>
+                <span><i class="bx bxs-phone"></i>99899245</span>
+                <span><i class="bx bxs-envelope"></i>GustoSabor@gmail.com</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="copyright">
+        <p>&#169; GustoSabor Todos Los Derechos Reservados</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+    <script src="cart.js"></script>
+    <script src="servicios.js"></script>
+    <script>
+        // JavaScript para manejar el menú responsive
+        document.getElementById('menu-icon').addEventListener('click', function() {
+            document.querySelector('.navbar').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

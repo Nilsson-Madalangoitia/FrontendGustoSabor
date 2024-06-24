@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - GustoSabor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+
+<body>
+    <header>
+        <a href="/index.html" class="logo">
+            <img src="img/logo-catering.png" alt="logo">
+        </a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <ul class="navbar">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="menu.html">Menú</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="nosotros.html">Sobre nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="admin-login.html" class="admin-login-btn">Admin Login</a></li>
+        </ul>
+        </ul>
+        <div class="header-icon">
+            <i class='bx bx-cart-alt' id="cart-icon"></i>
+        </div>
+        <div id="cart" class="cart">
+            <div class="cart-header">
+                <h2>Mi Carrito</h2>
+                <button class="close-btn"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="cart-items">
+                <!-- Los productos del carrito se agregarán aquí dinámicamente -->
+            </div>
+            <div class="cart-footer">
+                <div class="total"></div>
+                <a href="pasarela.html"> <button class="checkout-btn">Ir a pagar</button> </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        
+        <section class="nosotross-history">
+            <div class="heading">
+                <h2>Nuestra Historia</h2>
+            </div>
+
+            <div class="nosotross-history-content">
+                <p>GustoSabor nació de la pasión por crear experiencias culinarias excepcionales. Desde nuestros inicios
+                    en 2010, nos hemos dedicado a brindar servicios de catering de alta calidad, combinando sabores
+                    auténticos con un servicio impecable.</p>
+                <img src="img/nosotros1.jpg" alt="Nuestra Historia">
+            </div>
+        </section>
+
+        <section class="nosotross-mission">
+            <div class="nosotross-mission-content">
+                <div class="nosotross-mission-text">
+                    <h2>Nuestra Misión</h2>
+                    <p>En GustoSabor, nuestra misión es crear experiencias culinarias memorables que deleiten los sentidos y
+                        excedan las expectativas de nuestros clientes. Nos esforzamos por utilizar ingredientes frescos y de
+                        alta calidad, y nos apasiona la innovación culinaria.</p>
+                    <a href="#" class="btn">Planifica tu Evento</a>
+                </div>
+                <div class="nosotross-mission-image">
+                    <img src="img/about-collage.png" alt="Nuestra Misión">
+                </div>
+            </div>
+        </section>
+
+        <section class="nosotross-vision">
+            <div class="nosotross-vision-content">
+                <div class="nosotross-vision-image">
+                    <img src="img/vision.jpg" alt="Nuestra Visión">
+                </div>
+                <div class="nosotross-vision-text">
+                    <h2>Nuestra Visión</h2>
+                    <p>Nuestra visión es ser reconocidos como líderes en la industria del catering, ofreciendo servicios excepcionales
+                        y creando experiencias culinarias inolvidables. Buscamos ser la opción preferida para eventos especiales,
+                        destacando por nuestra creatividad, calidad y compromiso con la satisfacción del cliente.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="nosotross-team">
+            <div class="heading">
+                <h2>Nuestro Equipo</h2>
+            </div>
+
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="img/chef.jpg" alt="Chef 1">
+                    <h4>Juan Pérez</h4>
+                    <p>Chef Ejecutivo</p>
+                </div>
+                <div class="team-member">
+                    <img src="img/chef2.jpg" alt="Chef 2">
+                    <h4>María González</h4>
+                    <p>Chef Pastelera</p>
+                </div>
+                <!-- Agrega más miembros del equipo según sea necesario -->
+            </div>
+        </section>
+    </main>
+
+    <section class="footer">
+        <div class="footer-box">
+            <h2>GustoSabor</h2>
+            <p>Transformamos tu celebración en una experiencia culinaria</p>
+            <div class="social">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-tiktok'></i></a>
+            </div>
+        </div>
+        <div class="footer-box">
+            <h3>Soporte</h3>
+            <li><a href="#">Sobre nosotros</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Galeria</a></li>
+        </div>
+        <div class="footer-box">
+            <h3>Encuéntranos</h3>
+            <div class="contact">
+                <span><i class="bx bxs-map"></i> Av. Túpac Amaru 614, Urb. Las Quintanas</span>
+                <span><i class="bx bxs-phone"></i>99899245</span>
+                <span><i class="bx bxs-envelope"></i>GustoSabor@gmail.com</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="copyright">
+        <p>&#169; GustoSabor Todos Los Derechos Reservados</p>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        // JavaScript para manejar el menú responsive
+        document.getElementById('menu-icon').addEventListener('click', function() {
+            document.querySelector('.navbar').classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>
